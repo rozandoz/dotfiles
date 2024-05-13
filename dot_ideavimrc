@@ -1,0 +1,79 @@
+"" Source your .vimrc
+"source ~/.vimrc
+
+"" -- Plugins --
+set commentary
+set nerdtree
+set sneak
+set quickscope  
+
+let mapleader=" "
+set scrolloff=5
+set incsearch
+set clipboard+=unnamed
+set relativenumber
+set visualbell
+set noerrorbells
+set showmode
+set ignorecase
+set smartcase
+
+"" -- Maps --
+" Find
+map <leader>ff <Action>(SearchEverywhere)
+map <leader>ft <Action>(GotoClass)
+map <leader>fa <Action>(TextSearchAction)
+map <leader>fo <Action>(GotoFile)
+map <leader>fm <Action>(FileStructurePopup)
+map <leader>fc <Action>(GotoAction)
+map <leader>fu <Action>(FindUsages)
+map <leader>fb <Action>(Switcher)
+
+" Refactor
+map <leader>ra <Action>(ShowIntentionActions)
+map <leader>rt <Action>(Refactorings.QuickListPopupAction)
+map <leader>rr <Action>(RenameElement)
+map <leader>ri <Action>(Generate)
+map <leader>rc <Action>(CodeCleanup)
+
+" Document
+map <leader>df <Action>(ReformatCode)
+map <leader>dw <Action>(EditorToggleUseSoftWraps)
+map <leader>de <Action>(ExpandAllRegions)
+map <leader>dc <Action>(CollapseAllRegions)
+map <leader>x <Action>(CloseEditor)
+
+" Block
+map <leader>be <Action>(ExpandRegion)
+map <leader>bc <Action>(CollapseRegion)
+
+" Show
+map <leader>si <Action>(ToggleInlayHintsGloballyAction)
+map <leader>sw <Action>(EditorToggleShowWhitespaces)
+
+" Windows
+map <C-w>n :NERDTree<CR>
+map <C-w>t <Action>(ActivateTerminalToolWindow)
+
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
+
+map <A-h> <Action>(StretchSplitToLeft)
+map <A-j> <Action>(StretchSplitToBottom)
+map <A-k> <Action>(StretchSplitToUp)
+map <A-l> <Action>(StretchSplitToRight)
+
+" Misc 
+map Q gq 
+map gh <Action>(ShowErrorDescription)
+map gi <Action>(ReSharperGotoImplementation)
+
+nnoremap <C-u> <C-u>zz
+nnoremap <C-d> <C-d>zz
+
+nnoremap <Enter> o<ESC>
+nnoremap <S-Enter> O<ESC>
+
+vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
