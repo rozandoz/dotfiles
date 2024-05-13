@@ -1,4 +1,6 @@
-﻿g_LastCtrlKeyDownTime := 0
+﻿#NoTrayIcon
+
+g_LastCtrlKeyDownTime := 0
 g_AbortSendEsc := false
 g_ControlRepeatDetected := false
 

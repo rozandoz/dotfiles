@@ -1,4 +1,6 @@
-﻿GroupAdd AltTabWindow, ahk_class MultitaskingViewFrame  ; Windows 10
+﻿#NoTrayIcon
+
+GroupAdd AltTabWindow, ahk_class MultitaskingViewFrame  ; Windows 10
 GroupAdd AltTabWindow, ahk_class TaskSwitcherWnd  ; Windows Vista, 7, 8.1
 GroupAdd AltTabWindow, ahk_class #32771  ; Older, or with classic alt-tab enabled
 
