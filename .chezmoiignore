@@ -1,8 +1,13 @@
 README.md
 
-{{ if eq .chezmoi.os "windows" }}
+{{ if ne .chezmoi.os "windows" }}
+Documents/AutoHotKey
+{{ end }}
 
-.zshrc
+{{ if eq .chezmoi.os "darwin" }}
 .config/karabiner
+{{ end }}
 
+{{ if eq .chezmoi.os "windows" }}
+.zshrc
 {{ end }}
