@@ -5,7 +5,7 @@ local config = wezterm.config_builder()
 config.window_decorations = 'TITLE|RESIZE'
 config.hide_tab_bar_if_only_one_tab = true;
 config.window_frame = { font_size = 13.0 }
-config.color_scheme = 'OneDark (base16)'
+config.color_scheme = 'Catppuccin Macchiato'
 config.enable_scroll_bar = true
 
 -- fonts

@@ -1,9 +1,13 @@
 return {
-	"olimorris/onedarkpro.nvim",
-	lazy = false,
+    "catppuccin/nvim",
+    lazy = false,
 	priority = 1000,
-	config = function()
-		vim.cmd("colorscheme onedark")
-		vim.opt.termguicolors=true
+    config = function()
+        require("catppuccin").setup({
+            styles = {
+                conditionals = {},
+            }
+        })
+        vim.cmd("colorscheme catppuccin-macchiato")
 	end
 }
