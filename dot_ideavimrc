@@ -28,6 +28,7 @@ map <leader>fm <Action>(FileStructurePopup)
 map <leader>fc <Action>(GotoAction)
 map <leader>fu <Action>(FindUsages)
 map <leader>fb <Action>(Switcher)
+map <leader>fi <Action>(ReSharperGotoImplementation)
 
 " Refactor
 map <leader>ra <Action>(ShowIntentionActions)
@@ -46,6 +47,12 @@ map <leader>x <Action>(CloseEditor)
 " Block
 map <leader>be <Action>(ExpandRegion)
 map <leader>bc <Action>(CollapseRegion)
+
+" Navigation
+map ]d <Action>(GotoNextError)
+map [d <Action>(GotoPreviousError)
+map ]c <Action>(VcsShowNextChangeMarker)
+map [c <Action>(VcsShowPrevChangeMarker)
 
 " Show
 map <leader>si <Action>(ToggleInlayHintsGloballyAction)
