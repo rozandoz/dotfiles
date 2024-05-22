@@ -1,0 +1,29 @@
+(defcfg
+  process-unmapped-keys yes
+)
+
+(defsrc
+  a   s   d   f   j   k   l   ;
+)
+
+(defvar
+  tap-time 200
+  hold-time 150
+  meta-hold-time 500
+)
+
+(defalias
+  a_lctl (tap-hold $tap-time $hold-time a lctl)
+  s_lmet (tap-hold $tap-time $meta-hold-time s lmet)
+  d_lalt (tap-hold $tap-time $hold-time d lalt)
+  f_lsft (tap-hold $tap-time $hold-time f lsft)
+
+  j_rsft (tap-hold $tap-time $hold-time j rsft)
+  k_ralt (tap-hold $tap-time $hold-time k ralt)
+  l_rmet (tap-hold $tap-time $meta-hold-time l rmet)
+  ;_rctl (tap-hold $tap-time $hold-time ; rctl)
+)
+
+(deflayer base
+  @a_lctl  @s_lmet  @d_lalt  @f_lsft  @j_rsft  @k_ralt  @l_rmet  @;_rctl
+)
