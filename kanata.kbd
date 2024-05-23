@@ -11,7 +11,7 @@
 )
 
 (defvar
-  tap-time 175
+  tap-time 200
   hold-time 150
   meta-hold-time 500
 )
@@ -26,6 +26,17 @@
   k_ralt (tap-hold $tap-time $hold-time k ralt)
   l_rmet (tap-hold $tap-time $meta-hold-time l rmet)
   ;_rctl (tap-hold $tap-time $hold-time ; rctl)
+
+  ;; GASC
+  ;; a_lmet (tap-hold $tap-time $meta-hold-time a lmet)
+  ;; s_lalt (tap-hold $tap-time $hold-time s lalt)
+  d_lsft (tap-hold $tap-time $hold-time d lsft)
+  f_lctl (tap-hold $tap-time $hold-time f lctl)
+
+  j_rctl (tap-hold $tap-time $hold-time j rctl)
+  k_rsft (tap-hold $tap-time $hold-time k rsft)
+  ;; l_ralt (tap-hold $tap-time $hold-time l ralt)
+  ;; ;_rmet (tap-hold $tap-time $meta-hold-time ; rmet)
 
   ;; GACS
   a_lmet (tap-hold $tap-time $meta-hold-time a lmet)
@@ -42,10 +53,50 @@
   ecaps (tap-hold $tap-time $hold-time esc lctl)
 )
 
-(deflayer base
+(platform (macos)
+
+ (deflayer base
   grv       1       2       3       4       5       6       7       8       9       0       -       =       bspc
   tab       q       w       e       r       t       y       u       i       o       p       [       ]       \
-  @ecaps    @a_lmet @s_lalt @d_lctl @f_lsft g       h       @j_rsft @k_rctl @l_ralt @;_rmet '       ret
+  @ecaps    @a_lmet @s_lalt @d_lsft @f_lctl g       h       @j_rctl @k_rsft @l_ralt @;_rmet '       ret
   lsft      z       x       c       v       b       n       m       ,       .       /       rsft
   lctl      lalt    lmet                    spc                     ralt    rmet    cmp     rctl
+ )
 )
+
+(defalias
+ nav (layer-toggle nav_layer)
+)
+
+(defalias
+ lalt_nav   (tap-hold 200 200 lalt @nav)
+)
+
+
+(platform (win)
+ (deflayer base
+  grv       1       2       3       4       5       6       7       8       9       0       -       =       bspc
+  tab       q       w       e       r       t       y       u       i       o       p       [       ]       \
+  @ecaps    @a_lmet @s_lalt @d_lsft @f_lctl g       h       @j_rctl @k_rsft @l_ralt @;_rmet '       ret ;;GASC
+  ;; @ecaps    @a_lmet @s_lalt @d_lctl @f_lsft g       h       @j_rsft @k_rctl @l_ralt @;_rmet '       ret ;;GACS
+  ;; @ecaps    @a_lctl @s_lmet @d_lalt @f_lsft g       h       @j_rsft @k_ralt @l_rmet @;_rctl '       ret ;;CGAS
+  lsft      z       x       c       v       b       n       m       ,       .       /       rsft
+  lctl      lmet    lalt                    spc                     ralt    rmet    cmp     rctl
+ )
+)
+
+(deflayer nav_layer
+ grv       1       2       3       4       5       6       7       8       9       0       -       =       bspc
+ tab       q       w       e       r       t       y       u       i       o       p       [       ]       \
+ @ecaps    @a_lmet @s_lalt @d_lctl @f_lsft g       lft     down    up      rght    ;       '       ret
+ lsft      z       x       c       v       b       n       m       ,       .       /       rsft
+ lctl      lmet    lalt                    spc                     ralt    rmet    cmp     rctl
+)
+
+;; (deflayer nav_layer
+;;   _         _       _       _       _       _       _       _       _       _       _       _       _       _
+;;   _         _       _       _       _       _       _       _       _       _       _       _       _       _
+;;   @ecaps    @a_lmet @s_lalt @d_lctl @f_lsft _       _       1       @k_rctl @l_ralt @;_rmet _       _
+;;   _         _       _       _       _       _       _       _       _       _       _       _
+;;   _         _       _                       _                       _       _       _       _
+;; )
