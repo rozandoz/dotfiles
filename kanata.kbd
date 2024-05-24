@@ -65,11 +65,18 @@
 )
 
 (defalias
- nav (layer-toggle nav_layer)
+ toggle_num_layer (layer-toggle num_layer)
 )
 
 (defalias
- lalt_nav   (tap-hold 200 200 lalt @nav)
+ spc_num (tap-hold 200 200 spc @toggle_num_layer)
+ a_num (tap-hold 200 200 a @toggle_num_layer)
+
+ alt_nav (multi alt (layer-while-held nav_layer))
+ nav_l (multi (release-key alt) left) 
+ nav_r (multi (release-key alt) rght)
+ nav_u (multi (release-key alt) up) 
+ nav_d (multi (release-key alt) down)
 )
 
 
@@ -77,20 +84,28 @@
  (deflayer base
   grv       1       2       3       4       5       6       7       8       9       0       -       =       bspc
   tab       q       w       e       r       t       y       u       i       o       p       [       ]       \
-  @ecaps    @a_lmet @s_lalt @d_lsft @f_lctl g       h       @j_rctl @k_rsft @l_ralt @;_rmet '       ret ;;GASC
+  @ecaps    @a_num  @s_lalt @d_lsft @f_lctl g       h       @j_rctl @k_rsft @l_ralt @;_rmet '       ret ;;GASC
   ;; @ecaps    @a_lmet @s_lalt @d_lctl @f_lsft g       h       @j_rsft @k_rctl @l_ralt @;_rmet '       ret ;;GACS
   ;; @ecaps    @a_lctl @s_lmet @d_lalt @f_lsft g       h       @j_rsft @k_ralt @l_rmet @;_rctl '       ret ;;CGAS
   lsft      z       x       c       v       b       n       m       ,       .       /       rsft
-  lctl      lmet    lalt                    spc                     ralt    rmet    cmp     rctl
+  lctl      lmet    @alt_nav                spc                ralt    rmet    cmp     rctl
  )
 )
 
 (deflayer nav_layer
  grv       1       2       3       4       5       6       7       8       9       0       -       =       bspc
- tab       q       w       e       r       t       y       u       i       o       p       [       ]       \
- @ecaps    @a_lmet @s_lalt @d_lctl @f_lsft g       lft     down    up      rght    ;       '       ret
+ tab       q       w       e       r       t       y       pgup    i       o       p       [       ]       \
+ @ecaps    a       s       pgdn    f       g       @nav_l  @nav_d  @nav_u  @nav_r  ;       '       ret
  lsft      z       x       c       v       b       n       m       ,       .       /       rsft
  lctl      lmet    lalt                    spc                     ralt    rmet    cmp     rctl
+)
+
+(deflayer num_layer
+  _         _       _       _       _       _       _       _       _       _       _       _       _       _
+  _         _       _       _       _       _       +       7       8       9       _       _       _       _
+  @ecaps    _       @s_lalt @d_lsft @f_lctl _       -       4       5       6       S--     _       _
+  _         _       _       _       _       _       0       1       2       3       _       _
+  _         _       _                       _                       _       _       _       _
 )
 
 ;; (deflayer nav_layer
