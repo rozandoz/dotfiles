@@ -1,5 +1,7 @@
 (defcfg
   process-unmapped-keys yes
+  concurrent-tap-hold yes
+  log-layer-changes no
 )
 
 (defsrc
@@ -11,43 +13,23 @@
 )
 
 (defvar
-  tap-time 200
-  hold-time 150
+  tap-time 175
+  hold-time 280
   meta-hold-time 500
 )
 
 (defalias
-  a_lctl (tap-hold $tap-time $hold-time a lctl)
-  s_lmet (tap-hold $tap-time $meta-hold-time s lmet)
-  d_lalt (tap-hold $tap-time $hold-time d lalt)
-  f_lsft (tap-hold $tap-time $hold-time f lsft)
-
-  j_rsft (tap-hold $tap-time $hold-time j rsft)
-  k_ralt (tap-hold $tap-time $hold-time k ralt)
-  l_rmet (tap-hold $tap-time $meta-hold-time l rmet)
-  ;_rctl (tap-hold $tap-time $hold-time ; rctl)
 
   ;; GASC
-  ;; a_lmet (tap-hold $tap-time $meta-hold-time a lmet)
-  ;; s_lalt (tap-hold $tap-time $hold-time s lalt)
-  d_lsft (tap-hold $tap-time $hold-time d lsft)
-  f_lctl (tap-hold $tap-time $hold-time f lctl)
+  a_lmet (tap-hold-release $tap-time $hold-time a lmet)
+  s_lalt (tap-hold-release $tap-time $hold-time s lalt)
+  d_lsft (tap-hold-release $tap-time $hold-time d lsft)
+  f_lctl (tap-hold-release $tap-time $hold-time f lctl)
 
-  j_rctl (tap-hold $tap-time $hold-time j rctl)
-  k_rsft (tap-hold $tap-time $hold-time k rsft)
-  ;; l_ralt (tap-hold $tap-time $hold-time l ralt)
-  ;; ;_rmet (tap-hold $tap-time $meta-hold-time ; rmet)
-
-  ;; GACS
-  a_lmet (tap-hold $tap-time $meta-hold-time a lmet)
-  s_lalt (tap-hold $tap-time $hold-time s lalt)
-  d_lctl (tap-hold $tap-time $hold-time d lctl)
-  ;; f_lsft (tap-hold $tap-time $hold-time f lsft)
-
-  ;; j_rsft (tap-hold $tap-time $hold-time j rsft)
-  k_rctl (tap-hold $tap-time $hold-time k rctl)
-  l_ralt (tap-hold $tap-time $hold-time l ralt)
-  ;_rmet (tap-hold $tap-time $meta-hold-time ; rmet)
+  j_rctl (tap-hold-release $tap-time $hold-time j rctl)
+  k_rsft (tap-hold-release $tap-time $hold-time k rsft)
+  l_ralt (tap-hold-release $tap-time $hold-time l ralt)
+  ;_rmet (tap-hold-release $tap-time $hold-time ; rmet)
 
   ;; CAPS
   ecaps (tap-hold $tap-time $hold-time esc lctl)
@@ -69,8 +51,8 @@
 )
 
 (defalias
- spc_num (tap-hold 200 200 spc @toggle_num_layer)
- a_num (tap-hold 200 200 a @toggle_num_layer)
+ spc_num (tap-hold-release 200 200 spc @toggle_num_layer)
+ a_num (tap-hold-release 200 200 a @toggle_num_layer)
 
  alt_nav (multi alt (layer-while-held nav_layer))
  nav_l (multi (release-key alt) left) 
@@ -84,9 +66,7 @@
  (deflayer base
   grv       1       2       3       4       5       6       7       8       9       0       -       =       bspc
   tab       q       w       e       r       t       y       u       i       o       p       [       ]       \
-  @ecaps    @a_num  @s_lalt @d_lsft @f_lctl g       h       @j_rctl @k_rsft @l_ralt @;_rmet '       ret ;;GASC
-  ;; @ecaps    @a_lmet @s_lalt @d_lctl @f_lsft g       h       @j_rsft @k_rctl @l_ralt @;_rmet '       ret ;;GACS
-  ;; @ecaps    @a_lctl @s_lmet @d_lalt @f_lsft g       h       @j_rsft @k_ralt @l_rmet @;_rctl '       ret ;;CGAS
+  @ecaps    @a_lmet @s_lalt @d_lsft @f_lctl g       h       @j_rctl @k_rsft @l_ralt @;_rmet '       ret
   lsft      z       x       c       v       b       n       m       ,       .       /       rsft
   lctl      lmet    @alt_nav                spc                ralt    rmet    cmp     rctl
  )
