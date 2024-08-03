@@ -1,0 +1,50 @@
+[
+  {
+    "context": "VimControl && !menu",
+    "bindings": {
+      // put key-bindings here if you want them to work in normal & visual mode
+      "backspace": ["workspace::SendKeystrokes", "space"],
+      // find
+      "space f o": "file_finder::Toggle",
+      "space f t": "project_symbols::Toggle",
+      "space f b": "tab_switcher::Toggle",
+      "space f c": "command_palette::Toggle",
+      // refactor
+      "space r a": "editor::ToggleCodeActions",
+      "space r c": "editor::Format",
+      "space r r": "editor::Rename",
+      // document
+      "space d w": "editor::ToggleSoftWrap",
+      "space d c": "editor::Fold",
+      "space d e": "editor::UnfoldLines",
+      "space x": "pane::CloseActiveItem",
+      // show
+      "space s i": "editor::ToggleInlayHints",
+      // go to
+      "g i": "editor::GoToImplementation",
+      "ctrl-w g i": "editor::GoToImplementationSplit",
+      // misc
+      "shift-k": "editor::Hover",
+      "ctrl-shift-u": "vim::ScrollUp",
+      "ctrl-shift-d": "vim::ScrollDown",
+      "ctrl-u": ["workspace::SendKeystrokes", "ctrl-shift-u z z"],
+      "ctrl-d": ["workspace::SendKeystrokes", "ctrl-shift-d z z"],
+      "pageup": ["workspace::SendKeystrokes", "ctrl-shift-u z z"],
+      "pagedown": ["workspace::SendKeystrokes", "ctrl-shift-d z z"]
+    }
+  },
+  {
+    "context": "vim_mode == insert",
+    "bindings": {
+      // "j k": "vim::NormalBefore" // remap jk in insert mode to escape.
+    }
+  },
+  {
+    "context": "EmptyPane || SharedScreen",
+    "bindings": {
+      // put key-bindings here (in addition to above) if you want them to
+      // work when no editor exists
+      // "space f": "file_finder::Toggle"
+    }
+  }
+]
