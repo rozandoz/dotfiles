@@ -19,7 +19,6 @@
 )
 
 (defalias
-
   ;; GASC
   a_lmet (tap-hold-release $tap-time $hold-time a lmet)
   s_lalt (tap-hold-release $tap-time $hold-time s lalt)
@@ -36,7 +35,6 @@
 )
 
 (platform (macos)
-
  (deflayer base
   grv       1       2       3       4       5       6       7       8       9       0       -       =       bspc
   tab       q       w       e       r       t       y       u       i       o       p       [       ]       \
@@ -48,35 +46,29 @@
 
 (defalias
  toggle_num_layer (layer-toggle num_layer)
+ toggle_nav_layer (layer-toggle nav_layer)
 )
 
 (defalias
- spc_num (tap-hold-release 200 200 spc @toggle_num_layer)
- a_num (tap-hold-release 200 200 a @toggle_num_layer)
-
- alt_nav (multi alt (layer-while-held nav_layer))
- nav_l (multi (release-key alt) left) 
- nav_r (multi (release-key alt) rght)
- nav_u (multi (release-key alt) up) 
- nav_d (multi (release-key alt) down)
+ spc_nav (tap-hold-release $tap-time $hold-time spc @toggle_nav_layer)
+ alt_nav (layer-while-held nav_layer)
 )
 
-
-(platform (win)
+(platform (linux)
  (deflayer base
   grv       1       2       3       4       5       6       7       8       9       0       -       =       bspc
   tab       q       w       e       r       t       y       u       i       o       p       [       ]       \
   @ecaps    @a_lmet @s_lalt @d_lsft @f_lctl g       h       @j_rctl @k_rsft @l_ralt @;_rmet '       ret
   lsft      z       x       c       v       b       n       m       ,       .       /       rsft
-  lctl      lmet    @alt_nav                spc                ralt    rmet    cmp     rctl
+  lctl      lmet    lalt                    @spc_nav                ralt    rmet    cmp     rctl
  )
 )
 
 (deflayer nav_layer
  grv       1       2       3       4       5       6       7       8       9       0       -       =       bspc
- tab       q       w       e       r       t       y       pgup    i       o       p       [       ]       \
- @ecaps    a       s       pgdn    f       g       @nav_l  @nav_d  @nav_u  @nav_r  ;       '       ret
- lsft      z       x       c       v       b       n       m       ,       .       /       rsft
+ tab       q       w       e       r       t       y       u       i       o       p       [       ]       \
+ @ecaps    a       s       d       f       g       left    down    up      right   ;       '       ret
+ lsft      z       x       c       v       b       home    pgdn    pgup    end     /       rsft
  lctl      lmet    lalt                    spc                     ralt    rmet    cmp     rctl
 )
 
