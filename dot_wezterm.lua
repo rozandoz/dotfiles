@@ -1,12 +1,20 @@
 local wezterm = require 'wezterm'
 local config = wezterm.config_builder()
 
+local is_linux = function()
+	return wezterm.target_triple:find("linux") ~= nil
+end
+
 -- window
 config.window_decorations = 'TITLE|RESIZE'
 config.hide_tab_bar_if_only_one_tab = true;
 config.window_frame = { font_size = 13.0 }
 config.color_scheme = 'Catppuccin Frappe'
 config.enable_scroll_bar = true
+
+if is_linux then
+    config.front_end = 'WebGpu'
+end
 
 -- fonts
 config.font = wezterm.font('JetBrains Mono')
