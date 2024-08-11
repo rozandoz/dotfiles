@@ -16,9 +16,12 @@
   "ui_font_size": 16,
   "buffer_font_size": 16,
   "base_keymap": "VSCode",
+  "ui_font_family": "JetBrains Mono",
+  "buffer_font_family": "JetBrains Mono",
+  "buffer_line_height": "comfortable",
   "theme": {
     "mode": "system",
-    "light": "One Light",
-    "dark": "One Dark"
+    "light": "Catppuccin Latte - No Italics",
+    "dark": "Catppuccin Frappé - No Italics"
   }
 }
