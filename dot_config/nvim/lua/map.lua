@@ -1,3 +1,6 @@
+vim.api.nvim_set_keymap('n', '<BS>', '<leader>', { noremap=false });
+vim.api.nvim_set_keymap('v', '<BS>', '<leader>', { noremap=false });
+
 vim.keymap.set('n', '<leader>sw', '<cmd>set list!<CR>');
 
 vim.keymap.set('n', '<leader>x', '<cmd>bd<CR>');
