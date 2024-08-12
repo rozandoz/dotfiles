@@ -6,6 +6,7 @@ set commentary
 set nerdtree
 set sneak
 set quickscope  
+set surround
 
 let mapleader=" "
 set scrolloff=5
@@ -19,6 +20,9 @@ set ignorecase
 set smartcase
 
 "" -- Maps --
+nmap <BS> <Space>
+vmap <BS> <Space>
+
 " Find
 map <leader>ff <Action>(SearchEverywhere)
 map <leader>ft <Action>(GotoClass)
@@ -79,8 +83,15 @@ map gi <Action>(ReSharperGotoImplementation)
 
 nnoremap <C-u> <C-u>zz
 nnoremap <C-d> <C-d>zz
+nnoremap <PageUp> <PageUp>zz
+nnoremap <PageDown> <PageDown>zz
 
 nnoremap <Enter> o<ESC>
 nnoremap <S-Enter> O<ESC>
 
 vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
+
+nnoremap <leader>p "0p
+nnoremap <leader>P "0P
+
+nnoremap YY yyp
