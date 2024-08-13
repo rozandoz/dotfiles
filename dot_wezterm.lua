@@ -1,5 +1,6 @@
 local wezterm = require 'wezterm'
 local config = wezterm.config_builder()
+local act = wezterm.action
 
 local is_linux = function()
 	return wezterm.target_triple:find("linux") ~= nil
@@ -46,6 +47,18 @@ config.keys = {
     { key = 'x', mods = 'LEADER', action = wezterm.action.CloseCurrentTab { confirm = true } },
     { key = 'n', mods = 'LEADER', action = wezterm.action.ActivateTabRelative(-1) },
     { key = 'p', mods = 'LEADER', action = wezterm.action.ActivateTabRelative(1) },
+    {
+        key = '.',
+        mods = 'LEADER',
+        action = act.PromptInputLine {
+            description = 'Rename tab',
+            action = wezterm.action_callback(function(window, pane, line)
+                if line then
+                    window:active_tab():set_title(line)
+                end
+            end),
+        }
+    }
 }
 
 -- plugins
