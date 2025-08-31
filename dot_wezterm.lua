@@ -48,13 +48,13 @@ config.keys = {
     { key = 'y', mods = 'LEADER', action = wezterm.action.ActivateCopyMode },
 
     -- tabs
-    { key = 's', mods = 'LEADER', action = wezterm.action.ShowTabNavigator },
+    { key = 'w', mods = 'LEADER', action = wezterm.action.ShowTabNavigator },
     { key = 'c', mods = 'LEADER', action = wezterm.action.SpawnTab 'CurrentPaneDomain' },
-    { key = 'w', mods = 'LEADER', action = wezterm.action.CloseCurrentTab { confirm = true } },
-    { key = 'n', mods = 'LEADER', action = wezterm.action.ActivateTabRelative(-1) },
-    { key = 'p', mods = 'LEADER', action = wezterm.action.ActivateTabRelative(1) },
+    { key = 'x', mods = 'SHIFT|LEADER', action = wezterm.action.CloseCurrentTab { confirm = true } },
+    { key = 'p', mods = 'LEADER', action = wezterm.action.ActivateTabRelative(-1) },
+    { key = 'n', mods = 'LEADER', action = wezterm.action.ActivateTabRelative(1) },
     {
-        key = '.',
+        key = ',',
         mods = 'LEADER',
         action = act.PromptInputLine {
             description = 'Rename',
@@ -95,7 +95,8 @@ tabline.setup({
         -- tab_inactive = { 'index', { 'process', padding = { left = 0, right = 1 } } },
         tabline_x = {},
         tabline_y = { 'ram', 'cpu' },
-        tabline_z = { 'datetime' },
+        -- tabline_z = { 'datetime' },
+        tabline_z = {},
     }
 })
 
