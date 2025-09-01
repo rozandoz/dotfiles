@@ -6,9 +6,11 @@ local is_linux = function()
 	return wezterm.target_triple:find("linux") ~= nil
 end
 
+local theme = 'Catppuccin Macchiato'
+
 -- window
 config.window_decorations = 'TITLE|RESIZE'
-config.color_scheme = 'Catppuccin Macchiato'
+config.color_scheme = theme
 config.enable_scroll_bar = true
 
 -- tabs
@@ -33,7 +35,7 @@ if wezterm.target_triple == 'x86_64-pc-windows-msvc' then
 end
 
 -- binds
-config.leader = { key = 't', mods = 'CTRL', timeout_milliseconds = 1000 }
+config.leader = { key = 'f', mods = 'CTRL', timeout_milliseconds = 1000 }
 
 config.keys = {
     -- panes
@@ -73,31 +75,42 @@ smart_splits.apply_to_config(config)
 
 local tabline = wezterm.plugin.require("https://github.com/michaelbrusegard/tabline.wez")
 tabline.setup({
-    options = {
-        tabs_enabled = true,
-        theme = config.color_scheme,
-        tab_separators = {
-            left = ' ', --wezterm.nerdfonts.pl_left_hard_divider,
-            right = '', --wezterm.nerdfonts.pl_right_hard_divider,
-        },
+  options = {
+    icons_enabled = true,
+    tabs_enabled = true,
+    theme_overrides = {},
+    section_separators = {
+      left = wezterm.nerdfonts.pl_left_hard_divider,
+      right = wezterm.nerdfonts.pl_right_hard_divider,
     },
-    sections = {
-        tabline_a = { 'mode' },
-        tabline_b = { 'workspace' },
-        tabline_c = { ' ' },
-        tab_active = {
-            'index',
-            { 'parent', padding = 0 },
-            '/',
-            { 'cwd', padding = { left = 0, right = 1 } },
-            { 'zoomed', padding = { left = 0, right = 1 } },
-        },
-        -- tab_inactive = { 'index', { 'process', padding = { left = 0, right = 1 } } },
-        tabline_x = {},
-        tabline_y = { 'ram', 'cpu' },
-        -- tabline_z = { 'datetime' },
-        tabline_z = {},
-    }
+    component_separators = {
+      left = wezterm.nerdfonts.pl_left_soft_divider,
+      right = wezterm.nerdfonts.pl_right_soft_divider,
+    },
+    tab_separators = {
+      left = wezterm.nerdfonts.pl_left_hard_divider,
+      right = ' ' .. wezterm.nerdfonts.pl_right_hard_divider,
+    },
+  },
+  sections = {
+    tabline_a = { 'mode' },
+    tabline_b = { 'workspace' },
+    tabline_c = { ' ' },
+    tab_active = {
+      'index',
+      { 'parent', padding = 0 },
+      '/',
+      { 'cwd', padding = { left = 0, right = 1 } },
+      { 'zoomed', padding = 0 },
+    },
+    tab_inactive = { 'index', { 'process', padding = { left = 0, right = 1 } } },
+    tabline_x = { ' ' },
+    tabline_y = { 'ram', 'cpu' },
+    tabline_z = { 'datetime' },
+  },
+  extensions = {},
 })
+
+tabline.set_theme(theme)
 
 return config
