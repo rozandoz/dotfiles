@@ -1,7 +1,8 @@
 return {
-    "catppuccin/nvim", name = "catppuccin", priority = 1000,
+    "joshdick/onedark.vim",
     config = function()
-        require("catppuccin").setup({})
-        vim.cmd("colorscheme catppuccin-macchiato")
+        vim.cmd("colorscheme onedark")
     end
 }
+
+
