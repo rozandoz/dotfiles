@@ -6,10 +6,17 @@ vim.keymap.set('n', '<leader>sw', '<cmd>set list!<CR>');
 vim.keymap.set('n', '<leader>x', '<cmd>bd<CR>');
 vim.keymap.set('n', '<leader>X', '<cmd>bd!<CR>');
 
-vim.keymap.set('n', '<leader>rf', vim.lsp.buf.format);
+-- lsp
+vim.keymap.set('n', '<leader>df', vim.lsp.buf.format);
 vim.keymap.set('n', '<leader>rr', vim.lsp.buf.rename);
 vim.keymap.set('n', '<leader>ra', vim.lsp.buf.code_action);
 
+vim.keymap.set('n', 'gh', vim.diagnostic.open_float);
+vim.keymap.set('n', 'gd', vim.lsp.buf.definition)
+vim.keymap.set('n', 'gi', vim.lsp.buf.implementation)
+vim.keymap.set('n', 'gu', vim.lsp.buf.references)
+
+-- misc
 vim.keymap.set('n', '<C-u', '<C-u>zz');
 vim.keymap.set('n', '<C-d', '<C-d>zz');
 vim.keymap.set('n', '<ESC>', '<cmd>noh<CR>');
