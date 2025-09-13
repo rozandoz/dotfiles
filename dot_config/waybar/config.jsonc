@@ -13,6 +13,7 @@
         "hyprland/window"
     ],
     "modules-right": [
+        "tray",
         "idle_inhibitor",
         "pulseaudio",
         "network",
@@ -24,8 +25,8 @@
         // "battery#bat2",
         "clock"
     ],
-    //Modules configuration
 
+    //Modules configuration
     "include": [
 		"~/.config/waybar/modules.json"
 	]

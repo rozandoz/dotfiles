@@ -4,8 +4,6 @@
         "tooltip": true,
         "tooltip-format": "btw"
     },
-
-
     "hyprland/workspaces": {
         "disable-scroll": true,
         "all-outputs": true,
@@ -17,6 +15,10 @@
             "default": ""
         }
     },
+    "tray": {
+        "icon-size": 21,
+        "spacing": 10
+    },
     "idle_inhibitor": {
         "format": "{icon}",
         "format-icons": {
@@ -26,9 +28,9 @@
     },
     "pulseaudio": {
         "format": "{icon}  {volume}%",
+        "format-muted": " ",
         "format-bluetooth": "{icon} {volume}%  {format_source}",
         "format-bluetooth-muted": " {icon} {format_source}",
-        "format-muted": " {format_source}",
         "format-source": " {volume}%",
         "format-source-muted": "",
         "format-icons": {
@@ -87,9 +89,9 @@
         "bat": "BAT2"
     },
     "clock": {
-        "format": "{:%H:%M | %e %B} ",
+        "format": "{:%H:%M | %d-%m-%Y}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format-alt": "{:%Y-%m-%d}"
+        "format-alt": "{:%H:%M | %e %B} "
     }
 
 }
