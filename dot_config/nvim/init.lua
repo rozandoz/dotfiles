@@ -14,6 +14,6 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-vim.lsp.enable('clangd')
+vim.lsp.enable({'clangd', 'rust_analyzer'})
 
 require("lazy").setup("plugins")
