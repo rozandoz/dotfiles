@@ -5,6 +5,12 @@ If ($PSVersionTable.PSVersion.Major -Le 5 -Or $isWindows) {
     If (-Not (Test-Path $nvimConfigPath)) {
         New-Item -Path $nvimConfigPath -ItemType Junction -Value .config/nvim
     }
+
+    # Create symlink for alacritty config
+    $alacrittyConfigPath = "AppData/Roaming/alacritty"
+    If (-Not (Test-Path $alacrittyConfigPath)) {
+        New-Item -Path $alacrittyConfigPath -ItemType Junction -Value .config/alacritty
+    }
      
     # Create symlink for yazi config
     $yaziConfigPath = "AppData/Roaming/yazi/config"
