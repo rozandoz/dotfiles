@@ -11,6 +11,12 @@ If ($PSVersionTable.PSVersion.Major -Le 5 -Or $isWindows) {
     If (-Not (Test-Path $alacrittyConfigPath)) {
         New-Item -Path $alacrittyConfigPath -ItemType Junction -Value .config/alacritty
     }
+
+    # Create symlink for zed config
+    $zedConfigPath = "AppData/Roaming/zed"
+    If (-Not (Test-Path $zedConfigPath)) {
+        New-Item -Path $zedConfigPath -ItemType Junction -Value .config/zed
+    }
      
     # Create symlink for yazi config
     $yaziConfigPath = "AppData/Roaming/yazi/config"
