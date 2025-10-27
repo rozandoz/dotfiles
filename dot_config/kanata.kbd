@@ -60,8 +60,8 @@
 
 (platform (macos)
  (defalias 
-  to_base (layer-switch base)
-  to_internal (layer-switch internal)
+  t_base (layer-switch base)
+  t_ext (layer-switch external)
  )
 )
 
@@ -71,17 +71,17 @@
   tab       q       w       e       r       t       y       u       i       o       p       [       ]       \
   @ecaps    @a_lmet @s_lalt @d_lsft @f_lctl g       h       @j_rctl @k_rsft @l_ralt @;_rmet '       ret
   lsft      z       x       c       v       b       n       m       ,       .       /       rsft
-  lctl      lmet    lalt                    @spc_nav                @to_internal    rmet    cmp     rctl
+  lctl      lmet    lalt                    @spc_nav                ralt    @t_ext  cmp     rctl
  )
 )
 
 (platform (macos)
- (deflayer internal
+ (deflayer external
   grv       1       2       3       4       5       6       7       8       9       0       -       =       bspc
   tab       q       w       e       r       t       y       u       i       o       p       [       ]       \
   @ecaps    @a_lmet @s_lalt @d_lsft @f_lctl g       h       @j_rctl @k_rsft @l_ralt @;_rmet '       ret
   lsft      z       x       c       v       b       n       m       ,       .       /       rsft
-  lctl      lalt    lmet                    @spc_nav                @to_base    lmet    cmp     rctl
+  lctl      lalt    lmet                    @spc_nav                rmet    @t_base cmp     rctl
  )
 )
 
