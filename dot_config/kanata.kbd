@@ -34,16 +34,6 @@
   ecaps (tap-hold $tap-time $hold-time esc lctl)
 )
 
-(platform (macos)
- (deflayer base
-  grv       1       2       3       4       5       6       7       8       9       0       -       =       bspc
-  tab       q       w       e       r       t       y       u       i       o       p       [       ]       \
-  @ecaps    @a_lmet @s_lalt @d_lsft @f_lctl g       h       @j_rctl @k_rsft @l_ralt @;_rmet '       ret
-  lsft      z       x       c       v       b       n       m       ,       .       /       rsft
-  lctl      lalt    lmet                    spc                     ralt    rmet    cmp     rctl
- )
-)
-
 (defalias
  toggle_num_layer (layer-toggle num_layer)
  toggle_nav_layer (layer-toggle nav_layer)
@@ -53,6 +43,8 @@
  spc_nav (tap-hold-release $tap-time $hold-time spc @toggle_nav_layer)
  alt_nav (layer-while-held nav_layer)
 )
+
+;; linux
 
 (platform (linux)
  (deflayer base
@@ -64,9 +56,40 @@
  )
 )
 
+;; macos
+
+(platform (macos)
+ (defalias 
+  to_base (layer-switch base)
+  to_internal (layer-switch internal)
+ )
+)
+
+(platform (macos)
+ (deflayer base
+  grv       1       2       3       4       5       6       7       8       9       0       -       =       bspc
+  tab       q       w       e       r       t       y       u       i       o       p       [       ]       \
+  @ecaps    @a_lmet @s_lalt @d_lsft @f_lctl g       h       @j_rctl @k_rsft @l_ralt @;_rmet '       ret
+  lsft      z       x       c       v       b       n       m       ,       .       /       rsft
+  lctl      lmet    lalt                    @spc_nav                @to_internal    rmet    cmp     rctl
+ )
+)
+
+(platform (macos)
+ (deflayer internal
+  grv       1       2       3       4       5       6       7       8       9       0       -       =       bspc
+  tab       q       w       e       r       t       y       u       i       o       p       [       ]       \
+  @ecaps    @a_lmet @s_lalt @d_lsft @f_lctl g       h       @j_rctl @k_rsft @l_ralt @;_rmet '       ret
+  lsft      z       x       c       v       b       n       m       ,       .       /       rsft
+  lctl      lalt    lmet                    @spc_nav                @to_base    lmet    cmp     rctl
+ )
+)
+
+;; custom layers
+
 (deflayer nav_layer
- grv       1       2       3       4       5       6       7       8       9       0       -       =       bspc
- tab       q       w       e       r       t       y       u       i       o       p       [       ]       \
+ grv       1       2       3       4       5       6       7       8       9       0       -       =        bspc
+ tab       q       w       e       r       t       y       u       i       o       p       [       ]        \
  @ecaps    a       s       d       f       g       left    down    up      right   ;       '       ret
  lsft      z       x       c       v       b       home    pgdn    pgup    end     /       rsft
  lctl      lmet    lalt                    spc                     ralt    rmet    cmp     rctl
@@ -79,11 +102,3 @@
   _         _       _       _       _       _       0       1       2       3       _       _
   _         _       _                       _                       _       _       _       _
 )
-
-;; (deflayer nav_layer
-;;   _         _       _       _       _       _       _       _       _       _       _       _       _       _
-;;   _         _       _       _       _       _       _       _       _       _       _       _       _       _
-;;   @ecaps    @a_lmet @s_lalt @d_lctl @f_lsft _       _       1       @k_rctl @l_ralt @;_rmet _       _
-;;   _         _       _       _       _       _       _       _       _       _       _       _
-;;   _         _       _                       _                       _       _       _       _
-;; )
