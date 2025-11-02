@@ -1,4 +1,5 @@
 [opener]
 edit = [
 	{ run = 'nvim "%0"', block = true, for='windows' },
+	{ run = '$EDITOR "$@"', block = true, for = "unix" },
 ]
