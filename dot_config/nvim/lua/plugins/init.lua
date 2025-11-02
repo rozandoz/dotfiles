@@ -1,4 +1,5 @@
 return {
     "tpope/vim-commentary",
-    'mrjones2014/smart-splits.nvim'
+    "tpope/vim-surround",
+    "mrjones2014/smart-splits.nvim"
 }
