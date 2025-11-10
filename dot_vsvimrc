@@ -1,0 +1,22 @@
+let mapleader=" "
+
+set clipboard=unnamed
+set ignorecase
+set relativenumber
+
+nmap <BS> <Space>
+nnoremap <Leader>fa :vsc Edit.GoToAll<CR>
+nnoremap <Leader>ff :vsc Edit.GoToFile<CR>
+
+nnoremap <Leader>df :vsc Edit.FormatDocument<CR>
+
+nnoremap <Leader>rr :vsc Refactor.Rename<CR>
+nnoremap <Leader>ra :vsc View.QuickActions<CR>
+
+nnoremap <C-o> :vsc View.NavigateBackward<CR>
+nnoremap <C-i> :vsc View.NavigateForward<CR>
+
+nnoremap gcc :vsc Edit.ToggleComment<CR>
+vnoremap gc :vsc Edit.ToggleComment<CR>
+
+nnoremap <Leader>zz :source ~\.vsvimrc<CR>
