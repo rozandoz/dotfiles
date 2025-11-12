@@ -5,18 +5,57 @@ set ignorecase
 set relativenumber
 
 nmap <BS> <Space>
-nnoremap <Leader>fa :vsc Edit.GoToAll<CR>
+vmap <BS> <Space>
+
+" Base
+nnoremap gd :vsc Edit.GoToDefinition<CR>
+nnoremap gi :vsc Edit.GoToImplementation<CR>
+
+nnoremap gcc :vsc Edit.ToggleLineComment<CR>
+vnoremap gc :vsc Edit.ToggleLineComment<CR>
+
+nnoremap K :vsc Edit.QuickInfo<CR>
+nnoremap gh :vsc Edit.QuickInfo<CR>
+
+" Find
+nnoremap <Leader>fa :vsc Edit.GoToText<CR>
 nnoremap <Leader>ff :vsc Edit.GoToFile<CR>
+nnoremap <Leader>ft :vsc Edit.GoToType<CR>
+nnoremap <Leader>fm :vsc Edit.GoToMember<CR>
+nnoremap <Leader>fu :vsc Edit.FindAllReferences<CR>
+nnoremap <Leader>fb :vsc Edit.ShowNavigateMenu<CR>
 
+" Document
 nnoremap <Leader>df :vsc Edit.FormatDocument<CR>
+nnoremap <Leader>dw :vsc Edit.ViewWhiteSpace<CR>
+nnoremap <leader>de :vsc Edit.ExpandAllOutlining<CR>
+nnoremap <leader>dc :vsc Edit.CollapseAllOutlining<CR>
+nnoremap <Leader>x :vsc Window.CloseDocumentWindow<CR>
 
+" Refactor
 nnoremap <Leader>rr :vsc Refactor.Rename<CR>
 nnoremap <Leader>ra :vsc View.QuickActions<CR>
 
+" Navigation
 nnoremap <C-o> :vsc View.NavigateBackward<CR>
 nnoremap <C-i> :vsc View.NavigateForward<CR>
 
-nnoremap gcc :vsc Edit.ToggleComment<CR>
-vnoremap gc :vsc Edit.ToggleComment<CR>
+nnoremap <C-u> <C-u>zz
+nnoremap <C-d> <C-d>zz
+nnoremap * *zz
+
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
+
+" Misc
+nnoremap <Enter> o<ESC>
+nnoremap <S-Enter> O<ESC>
+
+nnoremap <Leader>p "0p
+nnoremap <Leader>P "0P
+
+nnoremap YY yyp
 
 nnoremap <Leader>zz :source ~\.vsvimrc<CR>
