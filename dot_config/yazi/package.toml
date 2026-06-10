@@ -1,0 +1,9 @@
+[[plugin.deps]]
+use = "XYenon/clipboard"
+rev = "0ac0320"
+hash = "e117bf4951a02239f843fbcdcd9b4f3b"
+
+[[flavor.deps]]
+use = "yazi-rs/flavors:catppuccin-mocha"
+rev = "0f9204b"
+hash = "5ebc8659108fcb68fe853e523115ed3c"

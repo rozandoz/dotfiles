@@ -1,5 +1,8 @@
 README.md
 
+.config/yazi/flavors
+.config/yazi/plugins
+
 {{ if ne .chezmoi.os "windows" }}
 Documents/AutoHotKey
 {{ end }}
